@@ -72,6 +72,13 @@
         />
         <button @click="makeBeverage">Make Beverage</button>
       </li>
+      <ul>
+        <li v-for="(recipe) in store.recipes">
+         
+          <button @click="loadBeverage(recipe)"> {{recipe.name}}</button>
+        </li>
+        
+      </ul>
     </ul>
   </div>
 </template>
@@ -85,19 +92,20 @@ const store = useStore();
 
 // Define reactive data
 const temps = ref(["Hot", "Cold"]);
-const currentTemp = ref("Hot");
+let currentTemp = ref("Hot");
 const creamers = ref(["None", "Milk", "Cream", "Half & Half"]);
-const currentCreamer = ref("None");
+let currentCreamer = ref("None");
 const syrups = ref(["None", "Vanilla", "Caramel", "Hazelnut"]);
-const currentSyrup = ref("None");
+let currentSyrup = ref("None");
 const baseBeverages = ref(["Coffee", "Green Tea", "Black Tea"]);
-const currentBeverage = ref("Coffee");
+let currentBeverage = ref("Coffee");
 const currentName = ref("");
 
 function makeBeverage(){
   store.$patch({
     recipes: {
       [currentName.value]: {
+        name: currentName.value,
         temperature: currentTemp.value,
         creamer: currentCreamer.value,
         syrup: currentSyrup.value,
@@ -105,7 +113,16 @@ function makeBeverage(){
       }
     }
   })
+
 }
+function loadBeverage(recipe){
+  currentTemp.value = recipe.temperature;
+  currentCreamer.value = recipe.creamer;
+  currentSyrup.value = recipe.syrup;
+  currentBeverage.value = recipe.beverage;
+
+}
+
 
 </script>
 
