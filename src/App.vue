@@ -84,7 +84,7 @@
 </template>
 
 <script setup lang="ts">
-import { guardReactiveProps, ref } from "vue";
+import { ref } from "vue";
 import Beverage from "./components/Beverage.vue";
 import { useStore } from "./Store"; 
 
@@ -115,7 +115,7 @@ function makeBeverage(){
   })
 
 }
-function loadBeverage(recipe){
+function loadBeverage(recipe: { temperature: string; creamer: string; syrup: string; beverage: string; }){
   currentTemp.value = recipe.temperature;
   currentCreamer.value = recipe.creamer;
   currentSyrup.value = recipe.syrup;
