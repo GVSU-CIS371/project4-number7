@@ -14,6 +14,6 @@ interface BeverageState {
 
 export const useStore = defineStore("Store", {
     state: (): BeverageState => ({
-        recipes: {}, // array to hold recipes
+        recipes: {},
     }),
 });
