@@ -70,6 +70,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import Beverage from "./components/Beverage.vue";
+import { useStore } from "./Store"; 
+
+const store = useStore();
+
 // Define reactive data
 const temps = ref(["Hot", "Cold"]);
 const currentTemp = ref("Hot");
@@ -79,6 +83,19 @@ const syrups = ref(["None", "Vanilla", "Caramel", "Hazelnut"]);
 const currentSyrup = ref("None");
 const baseBeverages = ref(["Coffee", "Green Tea", "Black Tea"]);
 const currentBeverage = ref("Coffee");
+
+// Method to add a new recipe
+const addRecipe = () => {
+  store.addRecipe({
+    name: '', // TODO: need to update with name variable's value
+    temperature: currentTemp.value,
+    creamer: currentCreamer.value,
+    syrup: currentSyrup.value,
+    beverage: currentBeverage.value,
+  });
+};
+
+//const recipes = store.recipes;
 </script>
 
 <style lang="scss">
