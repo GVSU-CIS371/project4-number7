@@ -97,7 +97,7 @@ const currentName = ref("");
 function makeBeverage(){
   store.$patch({
     recipes: {
-      currentName.value: {
+      [currentName.value]: {
         temperature: currentTemp.value,
         creamer: currentCreamer.value,
         syrup: currentSyrup.value,
@@ -105,8 +105,6 @@ function makeBeverage(){
       }
     }
   })
-
-  console.log(store.$state);
 }
 
 </script>
