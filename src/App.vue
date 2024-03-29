@@ -63,6 +63,14 @@
           </label>
         </template>
       </li>
+      <li>
+          <span>Name: </span>
+          <input
+            type="text"
+            name="Name"
+          />
+          <button @click="makeBeverage">Make Beverage</button>
+      </li>
     </ul>
   </div>
 </template>
@@ -79,6 +87,11 @@ const syrups = ref(["None", "Vanilla", "Caramel", "Hazelnut"]);
 const currentSyrup = ref("None");
 const baseBeverages = ref(["Coffee", "Green Tea", "Black Tea"]);
 const currentBeverage = ref("Coffee");
+
+function makeBeverage(){
+
+}
+
 </script>
 
 <style lang="scss">
