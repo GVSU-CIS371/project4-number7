@@ -63,6 +63,14 @@
           </label>
         </template>
       </li>
+      <li>
+          <span>Name: </span>
+          <input
+            type="text"
+            name="Name"
+          />
+          <button @click="makeBeverage">Make Beverage</button>
+      </li>
     </ul>
   </div>
 </template>
@@ -84,8 +92,7 @@ const currentSyrup = ref("None");
 const baseBeverages = ref(["Coffee", "Green Tea", "Black Tea"]);
 const currentBeverage = ref("Coffee");
 
-// Method to add a new recipe
-const addRecipe = () => {
+function makeBeverage(){
   store.addRecipe({
     name: '', // TODO: need to update with name variable's value
     temperature: currentTemp.value,
@@ -93,9 +100,10 @@ const addRecipe = () => {
     syrup: currentSyrup.value,
     beverage: currentBeverage.value,
   });
-};
 
-//const recipes = store.recipes;
+  // add code for step three
+}
+
 </script>
 
 <style lang="scss">
